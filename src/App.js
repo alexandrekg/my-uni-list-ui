@@ -12,12 +12,6 @@ function App() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const mangalist = [
-    {'name': 'Teste 1', 'chapter': '700/700', 'status': 'finished'},
-    {'name': 'Teste 2', 'chapter': '700/700', 'status': 'finished'},
-    {'name': 'Teste 3', 'chapter': '700/700', 'status': 'finished'}
-  ]
-
   return (
     <div>
       <header className="header">
@@ -39,7 +33,7 @@ function App() {
               <tr>
                 <th scope="row">1</th>
                 <td>{manga.name}</td>
-                <td>{manga.chapter}</td>
+                <td>{manga.current_chapter} / {manga.total_chapters ? manga.total_chapters : "--"}</td>
                 <td>{manga.status}</td>
                 <td>
                   <Button variant="primary" onClick={handleShow}>Edit</Button>
@@ -47,19 +41,6 @@ function App() {
                 </td>
               </tr>
             ))}
-{/*             
-            <tr>
-              <th scope="row">2</th>
-              <td>In Another World With my Smartphone</td>
-              <td>--/--</td>
-              <td>to read</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Accel World</td>
-              <td>20/--</td>
-              <td>reading</td>
-            </tr> */}
           </tbody>
         </table>
         

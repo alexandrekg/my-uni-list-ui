@@ -1,5 +1,5 @@
 [
-    {"name": "Naruto", "chapter": "700/700", "status": "finished"},
-    {"name": "Wind Breaker", "chapter": "378/--", "status": "reading"},
-    {"name": "All Hail The Sect Leader", "chapter": "80/--", "status": "dropped"}
+    {"name": "Naruto", "current_chapter": "700", "total_chapters": "700", "status": "finished"},
+    {"name": "Wind Breaker", "current_chapter": "378", "total_chapters": "", "status": "reading"},
+    {"name": "Solo Leveling", "current_chapter": "179", "total_chapters": "179", "status": "finished"}
 ]
