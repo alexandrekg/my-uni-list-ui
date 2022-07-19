@@ -4,7 +4,7 @@ function App() {
   return (
     <div>
       <header className='header'>
-        <h1>Piarzinho Mangá List</h1>
+        <h1>Alexandre's Mangá List</h1>
       </header>
       <div className='content-wrapper'>
         <div className='content-list'>
