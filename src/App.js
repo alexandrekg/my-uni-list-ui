@@ -1,31 +1,44 @@
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
     <div>
-      <header className='header'>
+      <header className="header">
         <h1>Alexandre's Mangá List</h1>
       </header>
-      <div className='content-wrapper'>
-        <div className='content-list'>
-          <div className='content-list-item'>
-            <span>Naruto</span>
-            <span>700/700</span>
-            <span>finished</span>
-          </div>
-          <div className='content-list-item'>
-            <span>In Another World With my Smartphone</span>
-            <span>--/--</span>
-            <span>to read</span>
-          </div>
-          <div className='content-list-item'>
-            <span>Accel World</span>
-            <span>20/--</span>
-            <span>reading</span>
-          </div>
+      <div className="container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Current chapter/Total Chapters</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Naruto</td>
+                <td>700/700</td>
+                <td>finished</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>In Another World With my Smartphone</td>
+                <td>--/--</td>
+                <td>to read</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Accel World</td>
+                <td>20/--</td>
+                <td>reading</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
   );
 }
 
