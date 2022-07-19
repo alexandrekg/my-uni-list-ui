@@ -8,3 +8,31 @@
     margin-top: 50px;
     text-align: center;
 }
+
+.content-wrapper {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 40px;
+    height: 300px;
+    border: 1px solid black;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.content-list {
+    width: 100%;
+    margin-left: 100px;
+}
+
+.content-list-item {
+    width: 100%;
+    max-width: 1400px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.content-list-item span {
+    margin-right: 25%;
+}
