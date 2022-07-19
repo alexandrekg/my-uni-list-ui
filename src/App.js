@@ -4,12 +4,19 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from 'react-bootstrap/Form';
+import MangaList from "./manga-list";
 
 function App() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const mangalist = [
+    {'name': 'Teste 1', 'chapter': '700/700', 'status': 'finished'},
+    {'name': 'Teste 2', 'chapter': '700/700', 'status': 'finished'},
+    {'name': 'Teste 3', 'chapter': '700/700', 'status': 'finished'}
+  ]
 
   return (
     <div>
@@ -28,16 +35,19 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Naruto</td>
-              <td>700/700</td>
-              <td>finished</td>
-              <td>
-                <Button variant="primary" onClick={handleShow}>Edit</Button>
-                <Button variant="danger">Delete</Button>
+            {MangaList.map(manga => (
+              <tr>
+                <th scope="row">1</th>
+                <td>{manga.name}</td>
+                <td>{manga.chapter}</td>
+                <td>{manga.status}</td>
+                <td>
+                  <Button variant="primary" onClick={handleShow}>Edit</Button>
+                  <Button variant="danger">Delete</Button>
                 </td>
-            </tr>
+              </tr>
+            ))}
+{/*             
             <tr>
               <th scope="row">2</th>
               <td>In Another World With my Smartphone</td>
@@ -49,7 +59,7 @@ function App() {
               <td>Accel World</td>
               <td>20/--</td>
               <td>reading</td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
         
