@@ -1,28 +1,42 @@
 import "./App.css";
 import Container from "react-bootstrap/Container";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import MangaList from "./manga-list";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import api from "./services/api";
 
 function App() {
   const [show, setShow] = useState(false);
+  const [mangaList, setMangaList] = useState([])
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const getData = async () => {
+    try {
+      const data = await api.get("manga_list/123123")
+      setMangaList(data.data)
+    } catch(err) {
+      console.error(err)
+    }
+  }
+
+  useEffect(() => {
+    getData()
+  }, []);
 
   return (
     <div>
       <header className="header">
-        <h1>Alexandre's Mangá List</h1>
+        <h1>Alexandre's Manga List</h1>
       </header>
       <Container>
         <Tabs defaultActiveKey="reading" className="mb-3">
           <Tab eventKey="reading" title="Reading">
-            <table class="table">
+            <table className="table">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -33,28 +47,30 @@ function App() {
                 </tr>
               </thead>
               <tbody>
-                {MangaList.map((manga) => manga.status === "reading" ? (
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>{manga.name}</td>
-                    <td>
-                      {manga.current_chapter} /{" "}
-                      {manga.total_chapters ? manga.total_chapters : "--"}
-                    </td>
-                    <td>{manga.status}</td>
-                    <td>
-                      <Button variant="primary" onClick={handleShow}>
-                        Edit
-                      </Button>
-                      <Button variant="danger">Delete</Button>
-                    </td>
-                  </tr>
-                ): null ) }
+                {mangaList.map((manga) =>
+                  manga.status === "reading" ? (
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{manga.name}</td>
+                      <td>
+                        {manga.current_chapter} /{" "}
+                        {manga.total_chapters ? manga.total_chapters : "--"}
+                      </td>
+                      <td>{manga.status}</td>
+                      <td>
+                        <Button variant="primary" onClick={handleShow}>
+                          Edit
+                        </Button>
+                        <Button variant="danger">Delete</Button>
+                      </td>
+                    </tr>
+                  ) : null
+                )}
               </tbody>
             </table>
           </Tab>
           <Tab eventKey="finished" title="Finished">
-          <table class="table">
+            <table className="table">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -65,28 +81,30 @@ function App() {
                 </tr>
               </thead>
               <tbody>
-                {MangaList.map((manga) => manga.status === "finished" ? (
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>{manga.name}</td>
-                    <td>
-                      {manga.current_chapter} /{" "}
-                      {manga.total_chapters ? manga.total_chapters : "--"}
-                    </td>
-                    <td>{manga.status}</td>
-                    <td>
-                      <Button variant="primary" onClick={handleShow}>
-                        Edit
-                      </Button>
-                      <Button variant="danger">Delete</Button>
-                    </td>
-                  </tr>
-                ): null ) }
+                {MangaList.map((manga) =>
+                  manga.status === "finished" ? (
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{manga.name}</td>
+                      <td>
+                        {manga.current_chapter} /{" "}
+                        {manga.total_chapters ? manga.total_chapters : "--"}
+                      </td>
+                      <td>{manga.status}</td>
+                      <td>
+                        <Button variant="primary" onClick={handleShow}>
+                          Edit
+                        </Button>
+                        <Button variant="danger">Delete</Button>
+                      </td>
+                    </tr>
+                  ) : null
+                )}
               </tbody>
             </table>
           </Tab>
           <Tab eventKey="dropped" title="Dropped">
-          <table class="table">
+            <table className="table">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -97,23 +115,25 @@ function App() {
                 </tr>
               </thead>
               <tbody>
-                {MangaList.map((manga) => manga.status === "dropped" ? (
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>{manga.name}</td>
-                    <td>
-                      {manga.current_chapter} /{" "}
-                      {manga.total_chapters ? manga.total_chapters : "--"}
-                    </td>
-                    <td>{manga.status}</td>
-                    <td>
-                      <Button variant="primary" onClick={handleShow}>
-                        Edit
-                      </Button>
-                      <Button variant="danger">Delete</Button>
-                    </td>
-                  </tr>
-                ): null ) }
+                {MangaList.map((manga) =>
+                  manga.status === "dropped" ? (
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{manga.name}</td>
+                      <td>
+                        {manga.current_chapter} /{" "}
+                        {manga.total_chapters ? manga.total_chapters : "--"}
+                      </td>
+                      <td>{manga.status}</td>
+                      <td>
+                        <Button variant="primary" onClick={handleShow}>
+                          Edit
+                        </Button>
+                        <Button variant="danger">Delete</Button>
+                      </td>
+                    </tr>
+                  ) : null
+                )}
               </tbody>
             </table>
           </Tab>
