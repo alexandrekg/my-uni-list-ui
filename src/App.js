@@ -1,7 +1,11 @@
+import './App.css';
+
 function App() {
   return (
     <div>
-      <h1>Piarzinhos</h1>
+      <header className='header'>
+        <h1>Piarzinho Mangá List</h1>
+      </header>
     </div>
   );
 }
